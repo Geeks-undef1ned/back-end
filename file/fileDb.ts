@@ -9,7 +9,6 @@ let data: Product[] = [];
 const fileDb = {
   async init() {
     data = await readFile(filename);
-    // Миграция: добавляем поле status для существующих продуктов
     let needsSave = false;
     data = data.map((product) => {
       if (!product.status) {

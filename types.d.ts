@@ -4,6 +4,6 @@ export interface Product {
   price: number;
   description: string;
   image: string | null;
-  status: "low" | "normal" | "high";
+  status: string;
 }
 export type ProductWithoutId = Omit<Product, "id">;

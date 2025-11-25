@@ -68,9 +68,6 @@ productsRouter.get("/:id", async (req, res) => {
  *             type: object
  *             required:
  *               - title
- *               - description
- *               - price
- *               - status
  *             properties:
  *               title:
  *                 type: string
@@ -83,7 +80,6 @@ productsRouter.get("/:id", async (req, res) => {
  *                 description: Цена продукта
  *               status:
  *                 type: string
- *                 enum: [low, normal, high]
  *                 description: Статус продукта
  *               image:
  *                 type: string
@@ -103,7 +99,7 @@ productsRouter.post("/", imagesUpload.single("image"), async (req, res) => {
     description: req.body.description,
     price: parseInt(req.body.price),
     image: req.file ? getImageURL(req.file.filename) : null,
-    status: req.body.status as "low" | "normal" | "high",
+    status: req.body.status,
   };
 
   const savedProduct = await fileDb.addItem(product);
@@ -141,7 +137,6 @@ productsRouter.post("/", imagesUpload.single("image"), async (req, res) => {
  *                 description: Цена продукта
  *               status:
  *                 type: string
- *                 enum: [low, normal, high]
  *                 description: Статус продукта
  *               image:
  *                 type: string
@@ -171,7 +166,7 @@ productsRouter.patch("/:id", imagesUpload.single("image"), async (req, res) => {
     updateData.price = parseInt(req.body.price);
   }
   if (req.body.status) {
-    updateData.status = req.body.status as "low" | "normal" | "high";
+    updateData.status = req.body.status;
   }
   if (req.file) {
     updateData.image = getImageURL(req.file.filename);
@@ -257,7 +252,6 @@ productsRouter.delete("/:id", async (req: any, res: any) => {
  *           description: URL изображения продукта
  *         status:
  *           type: string
- *           enum: [low, normal, high]
  *           description: Статус продукта
  */
 
