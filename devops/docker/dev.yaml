@@ -1,0 +1,11 @@
+services:
+  backend:
+    container_name: api-backend
+    build:
+      context: ../../
+      dockerfile: devops/Dockerfile.backend
+    command: "npm run dev"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../public:/opt/service/apiShop-backend/public

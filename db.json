@@ -6,5 +6,21 @@
     "price": 0,
     "image": null,
     "status": "string"
+  },
+  {
+    "id": "37236c79-833e-4db9-a399-64857b4beb79",
+    "title": "string2",
+    "description": "string21",
+    "price": 12,
+    "image": null,
+    "status": "new"
+  },
+  {
+    "id": "c2a971cb-3eb2-4a19-820e-35305c3863fd",
+    "title": "string2",
+    "description": "string21",
+    "price": 12,
+    "image": null,
+    "status": "new"
   }
 ]

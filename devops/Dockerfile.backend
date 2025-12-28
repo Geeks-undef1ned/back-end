@@ -1,0 +1,19 @@
+FROM node:20-alpine
+
+# Рабочая директория внутри контейнера
+WORKDIR /opt/service/apiShop-backend
+
+# Сначала копируем только package*.json (быстрый кеш для npm install)
+COPY package*.json ./
+
+# Установка зависимостей
+RUN npm install
+
+# Копируем весь остальной проект
+COPY . .
+
+# Порт, на котором работает твой Node-сервер (поменяй, если у тебя другой)
+EXPOSE 8000
+
+# Команда запуска (измени, если у тебя другое в package.json)
+CMD ["npm", "run", "dev"]

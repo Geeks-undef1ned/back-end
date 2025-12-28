@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.ts"
+    "dev": "nodemon index.ts",
+    "docker:up": "docker compose -f devops/docker/dev.yaml up --build -d",
+    "docker:down": "docker compose -f devops/docker/dev.yaml down",
+    "docker:logs": "docker logs api-backend -f",
+    "docker:status": "docker ps --filter name=api-backend && echo '\n--- Logs (last 10 lines) ---' && docker logs api-backend --tail 10",
+    "docker:restart": "docker compose -f devops/docker/dev.yaml restart"
   },
   "keywords": [],
   "author": "",
