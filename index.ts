@@ -6,7 +6,7 @@ import productsRouter from "./routers/products";
 import fileDb from "./file/fileDb";
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 const swaggerOptions = {
   definition: {
