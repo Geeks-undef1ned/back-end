@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 8000
 
 # Команда запуска (измени, если у тебя другое в package.json)
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
